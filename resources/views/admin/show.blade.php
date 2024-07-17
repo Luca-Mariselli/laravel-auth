@@ -15,7 +15,7 @@
             <div class="text-center col-6" style="font-size: 40px">{{ $project->description }}
                 {{ $project->type->description }} </div>
             <div class="col-6 text-center">
-                <img style="object-fit:contain" src="{{ $project->cover_image }}" alt="">
+                <img style="object-fit:contain" src="{{ $project->img }}" alt="">
             </div>
         </div>
     </section>
