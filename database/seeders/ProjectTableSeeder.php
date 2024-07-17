@@ -18,7 +18,7 @@ class ProjectTableSeeder extends Seeder
             $newProject = new Project();
             $newProject->title = $faker->sentence(2);
             $newProject->description = $faker->sentence(22);
-            $newProject->img = $faker->imageUrl(600, 400, 'projects', true, gray: true, format: 'jpg');
+            $newProject->img = "https://picsum.photos/id/" . rand(1, 250) . "/450/450";
             $newProject->type_id = $faker->numberBetween(1,4);
             $newProject->save();
         }
