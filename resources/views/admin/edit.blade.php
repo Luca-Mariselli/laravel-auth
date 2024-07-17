@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials.navbar')
 @section('content')
-    <form action="{{ route('admin.Project.update', $project->id) }}" method="POST">
+    <form action="{{ route('admin.Project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="w-50 m-5">
@@ -21,9 +21,24 @@
             <div>Errore nella descrizione</div>
         @enderror
         <div class="w-50 m-5">
-            <label for="formGroupExampleInput2" class="form-label">Image</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Img URL" name="img"
-                value="{{ old('img') ?? $project->img }}">
+            {{-- <label for="formGroupExampleInput2" class="form-label">Image</label> --}}
+            {{-- <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Img URL" name="img"
+                value="{{ old('img') ?? $project->img }}"> --}}
+            <div>
+                <label for="">Actual IMG</label>
+                <br>
+                @if (Str::startsWith($project->img, 'http' ?? 'https'))
+                    <img class="mb-5" width="200" style="object-fit:contain" src="{{ $project->img }}" alt="">
+                @else
+                    <img class="mb-5" width="200" style="object-fit:contain"
+                        src="{{ asset('storage/' . $project->img) }}" alt="">
+                @endif
+            </div>
+            <div>
+                <label for="formGroupExampleInput2" class="form-label">Image</label>
+                <input type="file" class="form-control" name="img" id="img" placeholder="Chose IMG file">
+
+            </div>
         </div>
         <select name="type_id" id="">
             <option value="{{ $type[0]->id }}">{{ $type[0]->name }}</option>

@@ -16,9 +16,17 @@
                 @foreach ($projects as $i => $item)
                     <tr style="border-bottom: 0.5px solid rgb(245, 245, 245)">
                         <th scope="row">#{{ $i + 1 }}</th>
-                        <td class="p-1" style="width: 5%"><img src="{{ $item['img'] }}"
-                                class="card-img-top object-fit-fill  rounded p-2" alt="..."
-                                style="height: 100px; width :100px"></td>
+                        <td class="p-1" style="width: 5%">
+                            @if (Str::startsWith($item->img, 'http' ?? 'https'))
+                                <img src="{{ $item['img'] }}" class="card-img-top object-fit-fill  rounded p-2"
+                                    alt="..." style="height: 100px; width :100px">
+                            @else
+                                <img src="{{ asset('storage/' . $item->img) }}"
+                                    class="card-img-top object-fit-fill  rounded p-2" alt="..."
+                                    style="height: 100px; width :100px">
+                            @endif
+
+                        </td>
                         <td class="w-25">{{ $item['title'] }}</td>
                         <td class="w-25">{{ $item->type->name }}</td>
                         <td class="w-50">{{ $item['description'] }}</td>

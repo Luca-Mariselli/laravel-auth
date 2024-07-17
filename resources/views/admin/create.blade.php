@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials.navbar')
 @section('content')
-    <form action="{{ route('admin.Project.store') }}" method="POST">
+    <form action="{{ route('admin.Project.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="w-50 m-5">
             <label for="formGroupExampleInput" class="form-label">Title</label>
@@ -14,8 +14,8 @@
         </div>
         <div class="w-50 m-5">
             <label for="formGroupExampleInput2" class="form-label">Image</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="img URL"
-                name="img">
+            <input type="file" class="form-control" name="img" id="img" placeholder="Chose IMG file">
+            {{-- <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="img URL" name="img"> --}}
         </div>
 
         <select name="type_id" id="">

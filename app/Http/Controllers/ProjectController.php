@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -46,6 +48,10 @@ class ProjectController extends Controller
         $newProject->img = $data['img'];
         $newProject->type_id = $data['type_id'];
         $newProject->save();
+
+        $image_path = Storage::put('uploads', $request->img);
+        $data['img'] = $image_path;
+        $newProject = Project::create($data);
         return redirect()->route('admin.Project.show', $newProject->id);
     }
 
@@ -92,6 +98,17 @@ class ProjectController extends Controller
 
         // $project->fill($data);
         // $project->save();
+        if ($request->has('img')) {
+            $image_path = Storage::put('uploads', $request->img);
+            $data['img'] = $image_path;
+
+            if ($project->img && !Str::start($project->img, 'http')) {
+                // not null and not startingn with http
+                Storage::delete($project->img);
+            }
+
+            //dd($image_path, $data);
+        }
         $project->update($data);
 
         return redirect()->route('admin.Project.show', $project->id);

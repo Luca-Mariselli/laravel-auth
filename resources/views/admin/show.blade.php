@@ -15,7 +15,12 @@
             <div class="text-center col-6" style="font-size: 40px">{{ $project->description }}
                 {{ $project->type->description }} </div>
             <div class="col-6 text-center">
-                <img style="object-fit:contain" src="{{ $project->img }}" alt="">
+                @if (Str::startsWith($project->img, 'http' ?? 'https'))
+                    <img style="object-fit:contain" src="{{ $project->img }}" alt="">
+                @else
+                    <img style="object-fit:contain" src="{{ asset('storage/' . $project->img) }}" alt="">
+                @endif
+
             </div>
         </div>
     </section>
