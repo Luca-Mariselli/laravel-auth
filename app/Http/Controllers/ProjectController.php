@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $newProject = new Project;
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
-        $newProject->img = $data['img'];
+        $newProject->cover_image = $data['cover_image'];
         $newProject->type_id = $data['type_id'];
         $newProject->save();
         return redirect()->route('admin.Project.show', $newProject->id);
@@ -84,7 +84,7 @@ class ProjectController extends Controller
         $data = $request->validate([
             "title" => "required",
             "description" => "required",
-            "img" => "required",
+            "cover_image" => "required",
             "type_id" => "required"
 
         ]);

@@ -10,7 +10,7 @@
                 value="{{ old('title') ?? $project->title }}">
         </div>
         @error('title')
-            <div>NON FUNZIONA</div>
+            <div>Errore nel titolo</div>
         @enderror
         <div class="w-50 m-5">
             <label for="formGroupExampleInput2" class="form-label">Description</label>
@@ -18,7 +18,7 @@
                 name="description" value="{{ old('description') ?? $project->description }}">
         </div>
         @error('description')
-            <div>NON FUNZIONA</div>
+            <div>Errore nella descrizione</div>
         @enderror
         <div class="w-50 m-5">
             <label for="formGroupExampleInput2" class="form-label">Image</label>
@@ -31,8 +31,8 @@
             <option value="{{ $type[2]->id }}">{{ $type[2]->name }}</option>
             <option value="{{ $type[3]->id }}">{{ $type[3]->name }}</option>
         </select>
-        @error('img')
-            <div>NON FUNZIONA</div>
+        @error('cover_image')
+            <div>Errore nel img</div>
         @enderror
 
         <button type="submit"> AGGIUNGI </button>
