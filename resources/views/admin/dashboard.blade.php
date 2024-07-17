@@ -16,8 +16,8 @@
 
                         {{ __('You are logged in!') }}
                         <h2>
-                            BENVENUTO 
-                            {{$active_user->name}}!
+                            BENVENUTO
+                            {{ $active_user->name }}!
                         </h2>
                     </div>
                 </div>

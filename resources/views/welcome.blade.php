@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="jumbotron p-5 mb-4 bg-transparent rounded-3">
-        
+
         <div class="container py-5">
             <div class="logo_laravel">
                 <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-25">
@@ -12,16 +12,13 @@
                 </svg>
             </div>
             <div class="text-center my-5">
-                
-                    <h2 class="display-5 fw-bold">
-                        TEAM dev :
-                    </h2>
-                    <h4>Giacomo Spadoni</h4>
-                    <h4>Luca Mariselli</h4>
-                    <h4>Antonio Dattolo</h4>
-               
+
+                <h2 class="display-5 fw-bold">
+                    DEV :
+                </h2>
+                <h3>Luca Mariselli</h3>
             </div>
-                
+
             <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel
                 breeze/blade. It works from laravel 9.x to the latest release 10.x</p>
             <a href="https://github.com/lambia/LC-20230627-laravel-template" class="btn btn-primary btn-lg"

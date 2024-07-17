@@ -14,7 +14,7 @@
         </div>
         <div class="w-50 m-5">
             <label for="formGroupExampleInput2" class="form-label">Image</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Img URL" name="img">
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Img URL" name="cover_image">
         </div>
 
         <select name="type_id" id="">
