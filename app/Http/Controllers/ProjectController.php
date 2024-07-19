@@ -47,6 +47,7 @@ class ProjectController extends Controller
         $newProject->description = $data['description'];
         $newProject->img = $data['img'];
         $newProject->type_id = $data['type_id'];
+        $newProject->date = $data['date'];
         $newProject->save();
 
         $image_path = Storage::put('uploads', $request->img);

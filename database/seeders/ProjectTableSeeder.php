@@ -14,12 +14,13 @@ class ProjectTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 50; $i++) { 
             $newProject = new Project();
             $newProject->title = $faker->sentence(2);
             $newProject->description = $faker->sentence(22);
             $newProject->img = "https://picsum.photos/id/" . rand(1, 250) . "/450/450";
             $newProject->type_id = $faker->numberBetween(1,4);
+            $newProject->date = $faker->date();
             $newProject->save();
         }
     }
